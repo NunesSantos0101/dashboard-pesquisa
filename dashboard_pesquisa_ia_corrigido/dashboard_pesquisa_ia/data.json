@@ -1,0 +1,684 @@
+{
+  "n": 20,
+  "generatedAt": "2026-10-27",
+  "categorical": {
+    "curso": [
+      {
+        "label": "Licenciatura em Computação",
+        "value": 14
+      },
+      {
+        "label": "Pedagogia",
+        "value": 3
+      },
+      {
+        "label": "Letras – Língua Portuguesa",
+        "value": 3
+      }
+    ],
+    "semestre": [
+      {
+        "label": "8° semestre",
+        "value": 14
+      },
+      {
+        "label": "5º semestre",
+        "value": 3
+      },
+      {
+        "label": "3º semestre",
+        "value": 2
+      },
+      {
+        "label": "7º semestre",
+        "value": 1
+      }
+    ],
+    "faixaEtaria": [
+      {
+        "label": "21 a 25 anos",
+        "value": 14
+      },
+      {
+        "label": "Até 20 anos",
+        "value": 2
+      },
+      {
+        "label": "Acima de 40 anos",
+        "value": 2
+      },
+      {
+        "label": "31 a 40 anos",
+        "value": 1
+      },
+      {
+        "label": "26 a 30 anos",
+        "value": 1
+      }
+    ],
+    "genero": [
+      {
+        "label": "Feminino",
+        "value": 10
+      },
+      {
+        "label": "Masculino",
+        "value": 10
+      }
+    ],
+    "acessoInternet": [
+      {
+        "label": "Sim, tenho acesso regular e estável",
+        "value": 18
+      },
+      {
+        "label": "Sim, mas com instabilidades frequentes",
+        "value": 2
+      }
+    ],
+    "formacaoIA": [
+      {
+        "label": "Sim, na universidade",
+        "value": 9
+      },
+      {
+        "label": "Sim, tanto na universidade quanto fora dela",
+        "value": 7
+      },
+      {
+        "label": "Não, nunca participei",
+        "value": 4
+      }
+    ],
+    "conhecimentoDiretrizes": [
+      {
+        "label": "Tinha ouvido falar, mas não sei os detalhes",
+        "value": 9
+      },
+      {
+        "label": "Não sabia nada sobre isso",
+        "value": 7
+      },
+      {
+        "label": "Sim, já conhecia essas diretrizes",
+        "value": 4
+      }
+    ],
+    "preparacaoCurso": [
+      {
+        "label": "Em parte — há algumas discussões, mas poderia ser mais aprofundado",
+        "value": 12
+      },
+      {
+        "label": "Sim, me sinto bem preparado(a)",
+        "value": 5
+      },
+      {
+        "label": "Não, o tema quase não é abordado no meu curso",
+        "value": 3
+      }
+    ],
+    "riscoEtico": [
+      {
+        "label": "Dependência excessiva da tecnologia, prejudicando o pensamento crítico",
+        "value": 11
+      },
+      {
+        "label": "Plágio e entrega de trabalhos feitos completamente pela IA",
+        "value": 5
+      },
+      {
+        "label": "Uso de informações falsas geradas pela IA (desinformação)",
+        "value": 3
+      },
+      {
+        "label": "Aumento das desigualdades entre escolas públicas e privadas",
+        "value": 1
+      }
+    ],
+    "desumanizacao": [
+      {
+        "label": "Discordo",
+        "value": 7
+      },
+      {
+        "label": "Neutro",
+        "value": 6
+      },
+      {
+        "label": "Concordo",
+        "value": 5
+      },
+      {
+        "label": "Concordo totalmente",
+        "value": 2
+      }
+    ],
+    "regrasInstitucionais": [
+      {
+        "label": "Sim, com regras bem definidas e obrigatórias",
+        "value": 12
+      },
+      {
+        "label": "Sim, mas com certa flexibilidade para professores",
+        "value": 8
+      }
+    ],
+    "disciplinasIA": [
+      {
+        "label": "Concordo totalmente",
+        "value": 10
+      },
+      {
+        "label": "Concordo",
+        "value": 7
+      },
+      {
+        "label": "Neutro",
+        "value": 3
+      }
+    ]
+  },
+  "likert": {
+    "formacaoDocenteIA": [
+      {
+        "label": "3",
+        "value": 3
+      },
+      {
+        "label": "4",
+        "value": 4
+      },
+      {
+        "label": "5",
+        "value": 13
+      }
+    ],
+    "beneficiosIA": [
+      {
+        "label": "2",
+        "value": 3
+      },
+      {
+        "label": "4",
+        "value": 7
+      },
+      {
+        "label": "5",
+        "value": 10
+      }
+    ],
+    "substituicaoProfessor": [
+      {
+        "label": "1",
+        "value": 19
+      },
+      {
+        "label": "2",
+        "value": 1
+      }
+    ],
+    "questionarIA": [
+      {
+        "label": "2",
+        "value": 1
+      },
+      {
+        "label": "4",
+        "value": 1
+      },
+      {
+        "label": "5",
+        "value": 18
+      }
+    ],
+    "preparoPessoal": [
+      {
+        "label": "1",
+        "value": 1
+      },
+      {
+        "label": "2",
+        "value": 2
+      },
+      {
+        "label": "3",
+        "value": 5
+      },
+      {
+        "label": "4",
+        "value": 8
+      },
+      {
+        "label": "5",
+        "value": 4
+      }
+    ]
+  },
+  "papelProfessor": [
+    {
+      "label": "Orientar o uso crítico e responsável da IA como ferramenta pedagógica",
+      "value": 19
+    },
+    {
+      "label": "Integrar a IA nas atividades",
+      "value": 16
+    },
+    {
+      "label": "mas sempre com supervisão e debate",
+      "value": 16
+    },
+    {
+      "label": "Proibir o uso de IA durante as aulas para evitar fraudes",
+      "value": 2
+    }
+  ],
+  "wordclouds": {
+    "pergunta10": {
+      "words": [
+        {
+          "label": "professores",
+          "value": 7
+        },
+        {
+          "label": "alunos",
+          "value": 6
+        },
+        {
+          "label": "escolas",
+          "value": 6
+        },
+        {
+          "label": "ferramenta",
+          "value": 5
+        },
+        {
+          "label": "profissionais",
+          "value": 4
+        },
+        {
+          "label": "área",
+          "value": 3
+        },
+        {
+          "label": "conhecimento",
+          "value": 3
+        },
+        {
+          "label": "computadores",
+          "value": 3
+        },
+        {
+          "label": "precisam",
+          "value": 3
+        },
+        {
+          "label": "ética",
+          "value": 3
+        },
+        {
+          "label": "investimentos",
+          "value": 2
+        },
+        {
+          "label": "tecnologia",
+          "value": 2
+        },
+        {
+          "label": "apenas",
+          "value": 2
+        },
+        {
+          "label": "instruir",
+          "value": 2
+        },
+        {
+          "label": "formação",
+          "value": 2
+        },
+        {
+          "label": "aplicados",
+          "value": 2
+        },
+        {
+          "label": "sala",
+          "value": 2
+        },
+        {
+          "label": "aula",
+          "value": 2
+        },
+        {
+          "label": "acrescentar",
+          "value": 2
+        },
+        {
+          "label": "dificuldades",
+          "value": 2
+        },
+        {
+          "label": "internet",
+          "value": 2
+        },
+        {
+          "label": "equipamentos",
+          "value": 2
+        },
+        {
+          "label": "realidade",
+          "value": 2
+        },
+        {
+          "label": "educacional",
+          "value": 2
+        },
+        {
+          "label": "desigualdades",
+          "value": 2
+        },
+        {
+          "label": "aluno",
+          "value": 2
+        },
+        {
+          "label": "públicas",
+          "value": 2
+        },
+        {
+          "label": "região",
+          "value": 2
+        },
+        {
+          "label": "docente",
+          "value": 2
+        },
+        {
+          "label": "ampliar",
+          "value": 2
+        },
+        {
+          "label": "aprendizagem",
+          "value": 2
+        },
+        {
+          "label": "ensino",
+          "value": 2
+        },
+        {
+          "label": "quais",
+          "value": 2
+        },
+        {
+          "label": "pedagógico",
+          "value": 2
+        },
+        {
+          "label": "atividades",
+          "value": 2
+        },
+        {
+          "label": "informações",
+          "value": 2
+        },
+        {
+          "label": "segura",
+          "value": 2
+        },
+        {
+          "label": "tanto",
+          "value": 2
+        },
+        {
+          "label": "precisaria",
+          "value": 1
+        },
+        {
+          "label": "especialização",
+          "value": 1
+        },
+        {
+          "label": "propagar",
+          "value": 1
+        },
+        {
+          "label": "documento",
+          "value": 1
+        },
+        {
+          "label": "livre",
+          "value": 1
+        },
+        {
+          "label": "formar",
+          "value": 1
+        },
+        {
+          "label": "trabalhos",
+          "value": 1
+        }
+      ],
+      "phrases": [
+        {
+          "label": "inteligência artificial",
+          "value": 1
+        },
+        {
+          "label": "formação docente",
+          "value": 1
+        },
+        {
+          "label": "uso pedagógico",
+          "value": 1
+        },
+        {
+          "label": "escolas públicas",
+          "value": 2
+        },
+        {
+          "label": "sala de aula",
+          "value": 2
+        }
+      ],
+      "totalResponses": 20
+    },
+    "pergunta22": {
+      "words": [
+        {
+          "label": "ferramenta",
+          "value": 6
+        },
+        {
+          "label": "alunos",
+          "value": 6
+        },
+        {
+          "label": "organização",
+          "value": 4
+        },
+        {
+          "label": "aluno",
+          "value": 4
+        },
+        {
+          "label": "atividades",
+          "value": 4
+        },
+        {
+          "label": "tempo",
+          "value": 3
+        },
+        {
+          "label": "pensamento",
+          "value": 3
+        },
+        {
+          "label": "crítico",
+          "value": 3
+        },
+        {
+          "label": "permitir",
+          "value": 3
+        },
+        {
+          "label": "vai",
+          "value": 3
+        },
+        {
+          "label": "ajudar",
+          "value": 3
+        },
+        {
+          "label": "regras",
+          "value": 3
+        },
+        {
+          "label": "trabalhos",
+          "value": 3
+        },
+        {
+          "label": "informações",
+          "value": 3
+        },
+        {
+          "label": "flexível",
+          "value": 2
+        },
+        {
+          "label": "relação",
+          "value": 2
+        },
+        {
+          "label": "trabalho",
+          "value": 2
+        },
+        {
+          "label": "incentivar",
+          "value": 2
+        },
+        {
+          "label": "mostrar",
+          "value": 2
+        },
+        {
+          "label": "sim",
+          "value": 2
+        },
+        {
+          "label": "pesquisa",
+          "value": 2
+        },
+        {
+          "label": "substituir",
+          "value": 2
+        },
+        {
+          "label": "tarefas",
+          "value": 2
+        },
+        {
+          "label": "ensinar",
+          "value": 2
+        },
+        {
+          "label": "aprendizado",
+          "value": 2
+        },
+        {
+          "label": "problemas",
+          "value": 2
+        },
+        {
+          "label": "los",
+          "value": 2
+        },
+        {
+          "label": "exemplo",
+          "value": 2
+        },
+        {
+          "label": "textos",
+          "value": 2
+        },
+        {
+          "label": "responsável",
+          "value": 2
+        },
+        {
+          "label": "pesquisas",
+          "value": 2
+        },
+        {
+          "label": "dinâmicas",
+          "value": 2
+        },
+        {
+          "label": "pesquisar",
+          "value": 2
+        },
+        {
+          "label": "erros",
+          "value": 2
+        },
+        {
+          "label": "auxílio",
+          "value": 2
+        },
+        {
+          "label": "apenas",
+          "value": 2
+        },
+        {
+          "label": "escrita",
+          "value": 2
+        },
+        {
+          "label": "tarefa",
+          "value": 2
+        },
+        {
+          "label": "permitiria",
+          "value": 2
+        },
+        {
+          "label": "tentaria",
+          "value": 1
+        },
+        {
+          "label": "exclusivamente",
+          "value": 1
+        },
+        {
+          "label": "ideias",
+          "value": 1
+        },
+        {
+          "label": "padronização",
+          "value": 1
+        },
+        {
+          "label": "sequência",
+          "value": 1
+        }
+      ],
+      "phrases": [
+        {
+          "label": "inteligência artificial",
+          "value": 1
+        },
+        {
+          "label": "pensamento crítico",
+          "value": 3
+        },
+        {
+          "label": "sala de aula",
+          "value": 1
+        },
+        {
+          "label": "pensamento crítico",
+          "value": 3
+        }
+      ],
+      "totalResponses": 20
+    }
+  }
+}

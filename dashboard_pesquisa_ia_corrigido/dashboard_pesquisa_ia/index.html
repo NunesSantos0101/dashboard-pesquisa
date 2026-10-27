@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Painel agregado de respostas sobre percepções da inteligência artificial na formação docente e no ensino básico.">
+  <title>Percepções sobre IA na Formação Docente</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/wordcloud@1.2.2/src/wordcloud2.js"></script>
+  <style>
+    :root{--bg:#f4f7fb;--card:#fff;--ink:#172033;--muted:#637087;--line:#e4eaf2;--blue:#2563eb;--teal:#0f9f8f;--purple:#7c3aed}
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);font-family:Inter,system-ui,sans-serif;color:var(--ink)}
+    header{background:linear-gradient(120deg,#102a56,#1d4ed8);color:white;padding:34px 22px 40px}
+    .wrap{max-width:1200px;margin:auto} .eyebrow{text-transform:uppercase;letter-spacing:.13em;font-size:.72rem;font-weight:700;opacity:.8}
+    h1{font-size:clamp(1.7rem,4vw,2.6rem);line-height:1.15;margin:12px 0;max-width:850px}
+    header p{max-width:800px;line-height:1.65;color:#e0eaff;margin:0}
+    main{max-width:1200px;margin:-20px auto 50px;padding:0 18px}
+    .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:18px}
+    .stat,.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 6px 22px #14264b08}
+    .stat{padding:20px}.stat .label{color:var(--muted);font-size:.84rem}.stat .number{font-size:2rem;font-weight:800;margin-top:8px}
+    .section-title{font-size:1.15rem;margin:28px 0 13px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .panel{padding:20px;min-width:0}.panel h3{font-size:1rem;margin:0 0 5px}.panel p{font-size:.83rem;color:var(--muted);line-height:1.5;margin:0 0 15px}
+    .chart-wrap{position:relative;height:300px}.wide{grid-column:1/-1}.wide .chart-wrap{height:350px}
+    .note{background:#eaf2ff;border:1px solid #d5e4ff;padding:16px;border-radius:12px;color:#23406f;line-height:1.6;font-size:.9rem;margin-top:18px}
+    footer{text-align:center;color:var(--muted);font-size:.8rem;padding:20px}
+    .wordcloud-wrap{height:340px;position:relative;width:100%;overflow:hidden;background:#fbfdff;border:1px solid var(--line);border-radius:12px}
+    .wordcloud-wrap canvas{width:100%;height:100%;display:block}
+    .phrase-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .phrase-chip{font-size:.82rem;background:#eef4ff;color:#23406f;border-radius:999px;padding:7px 10px}
+    @media(max-width:760px){.stats{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.wide{grid-column:auto}.panel{padding:16px}.chart-wrap{height:280px}.wide .chart-wrap{height:320px}}
+  </style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="eyebrow">Painel de pesquisa • Dados agregados</div>
+  <h1>Percepções sobre Inteligência Artificial na Formação Docente e no Ensino Básico</h1>
+  <p>Visualização interativa das respostas do questionário. Os gráficos apresentam frequências e distribuições, facilitando a leitura dos resultados da pesquisa.</p>
+</div></header>
+<main>
+  <section class="stats" aria-label="Indicadores gerais">
+    <div class="stat"><div class="label">Respostas analisadas</div><div class="number" id="total">—</div></div>
+    <div class="stat"><div class="label">Perguntas fechadas e escalas</div><div class="number" id="perguntas">—</div></div>
+    <div class="stat"><div class="label">Gráficos disponíveis</div><div class="number" id="graficos">—</div></div>
+  </section>
+  <h2 class="section-title">Perfil dos participantes</h2>
+  <section class="grid">
+    <article class="panel"><h3>Curso de licenciatura</h3><p>Distribuição das pessoas respondentes por curso.</p><div class="chart-wrap"><canvas id="curso"></canvas></div></article>
+    <article class="panel"><h3>Semestre atual</h3><p>Em qual etapa da graduação os participantes estão.</p><div class="chart-wrap"><canvas id="semestre"></canvas></div></article>
+    <article class="panel"><h3>Faixa etária</h3><p>Distribuição por faixa de idade.</p><div class="chart-wrap"><canvas id="faixaEtaria"></canvas></div></article>
+    <article class="panel"><h3>Acesso à internet</h3><p>Percepção sobre acesso suficiente para usar ferramentas de IA.</p><div class="chart-wrap"><canvas id="acessoInternet"></canvas></div></article>
+  </section>
+  <h2 class="section-title">Experiência e preparação para IA</h2>
+  <section class="grid">
+    <article class="panel"><h3>Participação em formação sobre IA</h3><p>Disciplinas, cursos, oficinas ou palestras já frequentados.</p><div class="chart-wrap"><canvas id="formacaoIA"></canvas></div></article>
+    <article class="panel"><h3>Conhecimento das diretrizes mencionadas</h3><p>Respostas sobre conhecimento prévio das diretrizes descritas no questionário.</p><div class="chart-wrap"><canvas id="conhecimentoDiretrizes"></canvas></div></article>
+    <article class="panel"><h3>O curso prepara para usar IA?</h3><p>Percepção dos participantes sobre a preparação oferecida pela licenciatura.</p><div class="chart-wrap"><canvas id="preparacaoCurso"></canvas></div></article>
+    <article class="panel"><h3>Regras institucionais</h3><p>Opinião sobre estabelecer regras claras para o uso da IA.</p><div class="chart-wrap"><canvas id="regrasInstitucionais"></canvas></div></article>
+  </section>
+  <h2 class="section-title">Opiniões sobre o papel da IA na educação</h2>
+  <section class="grid">
+    <article class="panel"><h3>Formação docente deve incluir IA</h3><p>Escala de 1 a 5 registrada no questionário.</p><div class="chart-wrap"><canvas id="formacaoDocenteIA"></canvas></div></article>
+    <article class="panel"><h3>IA pode trazer benefícios</h3><p>Escala de 1 a 5 registrada no questionário.</p><div class="chart-wrap"><canvas id="beneficiosIA"></canvas></div></article>
+    <article class="panel"><h3>IA pode substituir o professor</h3><p>Escala de 1 a 5; confira a formulação exata da pergunta no instrumento.</p><div class="chart-wrap"><canvas id="substituicaoProfessor"></canvas></div></article>
+    <article class="panel"><h3>Ensinar a questionar respostas da IA</h3><p>Escala de 1 a 5 registrada no questionário.</p><div class="chart-wrap"><canvas id="questionarIA"></canvas></div></article>
+    <article class="panel"><h3>Preparação pessoal para usar IA</h3><p>Autoavaliação em escala de 1 a 5.</p><div class="chart-wrap"><canvas id="preparoPessoal"></canvas></div></article>
+    <article class="panel"><h3>Risco ético mais citado</h3><p>Alternativas indicadas pelos participantes.</p><div class="chart-wrap"><canvas id="riscoEtico"></canvas></div></article>
+    <article class="panel wide"><h3>Papel do professor diante da IA</h3><p>Quantidade de vezes que cada opção foi selecionada. A pergunta permitia marcar mais de uma alternativa.</p><div class="chart-wrap"><canvas id="papelProfessor"></canvas></div></article>
+  </section>
+
+  <h2 class="section-title">Palavras mais citadas nas respostas abertas</h2>
+  <section class="grid">
+    <article class="panel wide"><h3>Pergunta 10 Necessidades das escolas da região Norte/Amazônia</h3><p>Quanto maior a palavra, maior sua frequência nas respostas. Foram removidas palavras funcionais comuns; expressões recorrentes aparecem em uma lista complementar.</p><div class="wordcloud-wrap"><canvas id="wordcloud10" aria-label="Nuvem de palavras da pergunta 10"></canvas></div><div id="phrases10" class="phrase-list"></div></article>
+    <article class="panel wide"><h3>Pergunta 22 Como futuros professores pretendem lidar com a IA</h3><p>Nuvem gerada a partir das respostas discursivas, sem exibir as respostas individuais.</p><div class="wordcloud-wrap"><canvas id="wordcloud22" aria-label="Nuvem de palavras da pergunta 22"></canvas></div><div id="phrases22" class="phrase-list"></div></article>
+  </section>
+  <div class="note"><strong>Nota metodológica:</strong> os gráficos mostram contagens de respostas válidas, sem divulgar timestamps ou respostas abertas individuais. A amostra atual contém um número limitado de participantes; interprete os resultados como descritivos da amostra, não como representativos de todos os licenciandos. Antes de publicar, confirme as referências normativas citadas no questionário e descreva no TCC o período e os critérios de coleta.</div>
+</main>
+<script>
+const palette = ['#2563eb','#0f9f8f','#7c3aed','#f59e0b','#e11d48','#0891b2','#64748b','#84cc16','#db2777','#6366f1'];
+const chartRefs = [];
+const doughnutPercentLabels = {
+  id: 'doughnutPercentLabels',
+  afterDatasetsDraw(chart) {
+    if (!['doughnut', 'pie'].includes(chart.config.type)) return;
+    const dataset = chart.data.datasets[0];
+    if (!dataset || !dataset.data || !dataset.data.length) return;
+    const total = dataset.data.reduce((sum, value) => sum + (Number(value) || 0), 0);
+    if (!total) return;
+
+    const {ctx} = chart;
+    const meta = chart.getDatasetMeta(0);
+    ctx.save();
+    ctx.font = '700 12px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+
+    meta.data.forEach((arc, index) => {
+      const value = Number(dataset.data[index]) || 0;
+      const percentage = value / total * 100;
+      // Evita sobreposição em fatias muito pequenas.
+      if (percentage < 5) return;
+      const pos = arc.tooltipPosition();
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = 'rgba(0, 0, 0, 0.28)';
+      ctx.fillStyle = '#ffffff';
+      const label = `${percentage.toLocaleString('pt-BR', {maximumFractionDigits: 1})}%`;
+      ctx.strokeText(label, pos.x, pos.y);
+      ctx.fillText(label, pos.x, pos.y);
+    });
+    ctx.restore();
+  }
+};
+Chart.register(doughnutPercentLabels);
+function makeChart(id, items, type='bar', horizontal=false){
+  const el=document.getElementById(id); if(!el || !items || !items.length) return;
+  const chart=new Chart(el,{type, data:{labels:items.map(x=>x.label),datasets:[{data:items.map(x=>x.value),backgroundColor:items.map((_,i)=>palette[i%palette.length]),borderColor:'#ffffff',borderWidth:2,borderRadius:type==='bar'?5:0}]},
+  options:{responsive:true,maintainAspectRatio:false,indexAxis:horizontal?'y':'x',
+    plugins:{legend:{display:type==='doughnut'||type==='pie',position:'bottom',labels:{boxWidth:12,padding:12}},tooltip:{callbacks:{label:(ctx)=>`${ctx.label}: ${ctx.raw} resposta(s)`}}},
+    scales:(type==='bar'||type==='line')?{x:{grid:{display:false},ticks:{autoSkip:false,maxRotation:35,minRotation:0}},y:{beginAtZero:true,ticks:{precision:0}}}:{}}});
+  chartRefs.push(chart);
+}
+function drawWordCloud(id, cloud){
+ const canvas=document.getElementById(id); if(!canvas || !cloud) return;
+ canvas.width=Math.max(320,canvas.parentElement.clientWidth); canvas.height=Math.max(260,canvas.parentElement.clientHeight);
+ const words=(cloud.words||[]).filter(x=>x.value>0).slice(0,45).map(x=>[x.label,x.value]);
+ if(!words.length){canvas.parentElement.insertAdjacentHTML('afterend','<p>Não há respostas suficientes para gerar a nuvem.</p>');return;}
+ if(typeof WordCloud==='undefined'){canvas.parentElement.insertAdjacentHTML('afterend','<p>A biblioteca de nuvem de palavras não carregou. Verifique sua conexão com a internet.</p>');return;}
+ const colors=['#1d4ed8','#0f766e','#7c3aed','#b45309','#be123c','#0369a1'];
+ WordCloud(canvas,{list:words,gridSize:8,weightFactor:(size)=>Math.max(12,Math.min(58,9+size*5)),fontFamily:'Inter, sans-serif',fontWeight:'700',color:()=>colors[Math.floor(Math.random()*colors.length)],backgroundColor:'#fbfdff',rotateRatio:0,minSize:10,shuffle:false,drawOutOfBound:false,shrinkToFit:true});
+ const target=document.getElementById(id==='wordcloud10'?'phrases10':'phrases22');
+ if(target && cloud.phrases && cloud.phrases.length){target.innerHTML='<strong style="width:100%;font-size:.85rem">Expressões recorrentes:</strong>'+cloud.phrases.slice(0,8).map(p=>`<span class="phrase-chip">${p.label} · ${p.value} ocorrência(s)</span>`).join('');}
+}
+async function init(){
+ try{
+  const response=await fetch('./data.json'); if(!response.ok) throw new Error('Não foi possível carregar data.json');
+  const d=await response.json();
+  document.getElementById('total').textContent=d.n;
+  document.getElementById('perguntas').textContent='22';
+  document.getElementById('graficos').textContent='15';
+  const c=d.categorical, l=d.likert;
+  makeChart('curso',c.curso,'doughnut');
+  makeChart('semestre',c.semestre,'bar',true);
+  makeChart('faixaEtaria',c.faixaEtaria,'doughnut');
+  makeChart('acessoInternet',c.acessoInternet,'doughnut');
+  makeChart('formacaoIA',c.formacaoIA,'bar',true);
+  makeChart('conhecimentoDiretrizes',c.conhecimentoDiretrizes,'bar',true);
+  makeChart('preparacaoCurso',c.preparacaoCurso,'doughnut');
+  makeChart('regrasInstitucionais',c.regrasInstitucionais,'doughnut');
+  makeChart('formacaoDocenteIA',l.formacaoDocenteIA,'bar');
+  makeChart('beneficiosIA',l.beneficiosIA,'bar');
+  makeChart('substituicaoProfessor',l.substituicaoProfessor,'bar');
+  makeChart('questionarIA',l.questionarIA,'bar');
+  makeChart('preparoPessoal',l.preparoPessoal,'bar');
+  makeChart('riscoEtico',c.riscoEtico,'bar',true);
+  makeChart('papelProfessor',d.papelProfessor,'bar',true);
+  drawWordCloud('wordcloud10',d.wordclouds.pergunta10);
+  drawWordCloud('wordcloud22',d.wordclouds.pergunta22);
+ }catch(e){document.querySelector('main').insertAdjacentHTML('afterbegin','<div class="note">Erro ao carregar os dados. Abra o projeto por um servidor local ou publique os dois arquivos juntos. Detalhe: '+e.message+'</div>');}
+}
+init();
+</script>
+</body>
+</html>

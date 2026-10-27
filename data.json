@@ -104,6 +104,30 @@
         "value": 4
       }
     ],
+    "classificacaoRiscos": [
+      {
+        "label": "Sim, é muito importante para proteger alunos e professores",
+        "value": 12
+      },
+      {
+        "label": "É importante, mas pode ser difícil de aplicar na prática",
+        "value": 7
+      },
+      {
+        "label": "Não tenho opinião formada sobre isso",
+        "value": 1
+      }
+    ],
+    "mediacaoHumana": [
+      {
+        "label": "Concordo totalmente — o professor deve sempre ter a palavra final",
+        "value": 18
+      },
+      {
+        "label": "Concordo em parte — depende da situação",
+        "value": 2
+      }
+    ],
     "preparacaoCurso": [
       {
         "label": "Em parte — há algumas discussões, mas poderia ser mais aprofundado",
@@ -261,11 +285,7 @@
       "value": 19
     },
     {
-      "label": "Integrar a IA nas atividades",
-      "value": 16
-    },
-    {
-      "label": "mas sempre com supervisão e debate",
+      "label": "Integrar a IA nas atividades, mas sempre com supervisão e debate",
       "value": 16
     },
     {
@@ -459,6 +479,14 @@
       ],
       "phrases": [
         {
+          "label": "escolas públicas",
+          "value": 2
+        },
+        {
+          "label": "sala de aula",
+          "value": 2
+        },
+        {
           "label": "inteligência artificial",
           "value": 1
         },
@@ -469,14 +497,6 @@
         {
           "label": "uso pedagógico",
           "value": 1
-        },
-        {
-          "label": "escolas públicas",
-          "value": 2
-        },
-        {
-          "label": "sala de aula",
-          "value": 2
         }
       ],
       "totalResponses": 20
@@ -658,13 +678,13 @@
         {
           "label": "sequência",
           "value": 1
+        },
+        {
+          "label": "todo",
+          "value": 1
         }
       ],
       "phrases": [
-        {
-          "label": "inteligência artificial",
-          "value": 1
-        },
         {
           "label": "pensamento crítico",
           "value": 3
@@ -674,8 +694,8 @@
           "value": 1
         },
         {
-          "label": "pensamento crítico",
-          "value": 3
+          "label": "inteligência artificial",
+          "value": 1
         }
       ],
       "totalResponses": 20
